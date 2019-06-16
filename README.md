@@ -39,25 +39,36 @@ structure, with all the needed and sample files to conduct analyses at
 UBESP. Does not matter if they are for a thesis, a project, a simple
 analyses, the initial structure for the project should be the same.
 
-The main characteristics are: - presence of folder (`analyses/`) that
-can be safely copy-pasted to a costumer folder or to an external one
-(e.g., SharePoint). It will contains all the reports, outputs, and
-script useful to easily find the results and also to reproduce them. -
-presence of an external folder to collect and manage *data-raw* which
-can be huge, sensitive, and so often they cannot be shared or uploaded
-on the net (e.g., on GitHub). On the other hand, the folder itself can
-be copy-pasted to a costumer folder or to an external one (e.g.,
-SharePoint) if usefull/admitted. - presence of a package-folder
-infrastructure which can be use to safely implement/include any custom
-or additional function usefull for the analyses. This can be VCS with
-git and GitHub safely, without risk to fill the space with data.
-Moreover, the folder `analyses` is inside the package main folder but it
-is `.Rbuildignored`, this means that can be git-tracked but it is not
-provided in the package boundle. Hence, the package can be safely shared
-both through GitHub or CRAN without risk to share data or anayses. -
-presence of folders and files to track: - literature used - papers
-written (in all the draft, submitted and published shape) - minutes -
-proposal - personal and private notes or comments not to be shared.
+The main characteristics are:
+
+  - presence of folder (`analyses/`) that can be safely copy-pasted to a
+    costumer folder or to an external one (e.g., SharePoint). It will
+    contains all the reports, outputs, and script useful to easily find
+    the results and also to reproduce them.
+
+  - presence of an external folder to collect and manage *data-raw*
+    which can be huge, sensitive, and so often they cannot be shared or
+    uploaded on the net (e.g., on GitHub). On the other hand, the folder
+    itself can be copy-pasted to a costumer folder or to an external one
+    (e.g., SharePoint), if usefull and admitted.
+
+  - presence of a package-folder infrastructure which can be use to
+    safely implement/include any custom or additional function usefull
+    for the analyses. This can be VCS with git and GitHub safely,
+    without risk to fill the space with data. Moreover, the folder
+    `analyses` is inside the package main folder but it is
+    `.Rbuildignored`, this means that can be git-tracked but it is not
+    provided in the package boundle. Hence, the package can be safely
+    shared both through GitHub or CRAN without risk to share data or
+    anayses.
+
+  - presence of folders and files to track:
+    
+      - literature used
+      - papers written (in all the draft, submitted and published shape)
+      - minutes
+      - proposal
+      - personal and private notes or comments not to be shared.
 
 This is a basic example which shows you how to simple it is to be
 used:\[1\]
@@ -65,6 +76,17 @@ used:\[1\]
 ``` r
 devubesp::create_ubesp_analysis("~/test")
 ```
+
+## Feature request
+
+If you need some more features, please file an issue on
+[github](https://github.com/CorradoLanera/devubesp/issues).
+
+## Bug reports
+
+If you encounter a bug, please file a
+[reprex](https://github.com/tidyverse/reprex) (minimal reproducible
+example) on [github](https://github.com/CorradoLanera/devubesp/issues).
 
 ## Code of Conduct
 

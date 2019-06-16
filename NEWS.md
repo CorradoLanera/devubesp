@@ -1,3 +1,5 @@
+* style update in README
+
 # devubesp 0.0.2
 
 * hot-fix CI tests because of knitr and rms
