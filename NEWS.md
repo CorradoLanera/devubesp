@@ -1,3 +1,5 @@
+# devubesp 0.0.2
+
 * hot-fix CI tests because of knitr and rms
 
 # devubesp 0.0.1

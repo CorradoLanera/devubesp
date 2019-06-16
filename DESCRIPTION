@@ -1,6 +1,6 @@
 Package: devubesp
 Title: Automate Analyses Setup at UBESP
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Corrado",
            family = "Lanera",
