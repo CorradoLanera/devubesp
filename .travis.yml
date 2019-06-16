@@ -7,8 +7,6 @@ matrix:
   include:
   - r: devel
     os: linux
-  - r: devel
-    os: osx
 
   - r: release
     os: linux
@@ -30,9 +28,4 @@ matrix:
   - r: 3.2
     os: linux
   - r: 3.2
-    os: osx
-
-  - r: 3.1
-    os: linux
-  - r: 3.1
     os: osx
