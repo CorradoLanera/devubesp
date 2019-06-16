@@ -5,6 +5,12 @@
 
 <!-- badges: start -->
 
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/CorradoLanera/devubesp?branch=master&svg=true)](https://ci.appveyor.com/project/CorradoLanera/devubesp)
+[![Travis build
+status](https://travis-ci.org/CorradoLanera/devubesp.svg?branch=master)](https://travis-ci.org/CorradoLanera/devubesp)
+[![Codecov test
+coverage](https://codecov.io/gh/CorradoLanera/devubesp/branch/master/graph/badge.svg)](https://codecov.io/gh/CorradoLanera/devubesp?branch=master)
 <!-- badges: end -->
 
 The goal of devubesp is to automate analyses setup tasks that are
