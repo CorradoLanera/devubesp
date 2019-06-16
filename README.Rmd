@@ -36,54 +36,124 @@ You can install the development version from
 devtools::install_github("CorradoLanera/devubesp")
 ```
 
-## Example
+## Preamble
 
 The package, _de facto_, provide a single function. The aim of the 
 function ``create_ubesp_analysis()` is to setup all the folders'
 structure, with all the needed and sample files to conduct analyses
 at UBESP. Does not matter if they are for a thesis, a project, a simple analyses, the initial structure for the project should be the same.
 
-The main characteristics are:
+The aim is to drastically reduce (up to the phisical limit of write a single line of code) the time needed to set up a well-organized and standardized structure for all the project, from the simplest to the most complex.
 
-  - presence of folder (`analyses/`) that can be safely copy-pasted to a
-    costumer folder or to an external one (e.g., SharePoint). It will 
-    contains all the reports, outputs, and script useful to easily 
-    find the results and also to reproduce them.
+My first hope is to have provaided a simple and effective instrument to reduce the direct time in the preparation of any project. The second, 
+and more relevant, hope is that all of this will be shared between the colleagues in a way to reduce also the future time to understand each
+other projects structure and work-flow in conducting analyses with R
+within the same unit.
+
+## Characteristics
+
+The main characteristics of the resulting structure of files and folders created are:
+
+  - A main folder name which is not ambiguous in time, this is achieved
+    pre-appending the year to the name of the main project name.^[In the
+    `minutes/` folder there where also an empty `.txt` file named with 
+    the current date (`yymmdd`) and the project name, to permit to setup
+    initial official notes (time-trakked).]
+
+  - presence of a first-level folder to collect and manage *data-raw*,
+    which can be huge, and sensitive, hence often they cannot be shared
+    or uploaded on the Net (e.g., GitHub). For this reason this folder 
+    is outside the one promoted to be VCS trakked by git.GitHub.
+    On the other hand, the folder itself can be copy-pasted to a
+    costumer folder, a supervisor folder, or to an external folder
+    (e.g., SharePoint), if usefull and admitted, because it contains 
+    only the raw data and the script to import (merge and) import them
+    in the analyses folder (if necessary).
     
-  - presence of an external folder to collect and manage *data-raw*
-    which can be huge, sensitive, and so often they cannot be shared or
-    uploaded on the net (e.g., on GitHub). On the other hand, the folder
-    itself can be copy-pasted to a costumer folder or to an external
-    one (e.g., SharePoint), if usefull and admitted.
+    The folder structure is very simple and it contains only a
+    preconfigured script to import and save the data in the right 
+    position.
+    
+    
+  - presence of a folder (`analyses/`) that can be safely copy-pasted to
+    a costumer folder, to supervisor folder, or to an external folder
+    (e.g., SharePoint). This has to be happen without any worry to 
+    brake some VCS controller (like git) nor to share unwanted
+    information, comments, notes, data that should remain private to the
+    analyst. It will contain all the reports, the outputs, and the
+    scripts useful to find the results and also to reproduce them.
+    
+    The main folder structure is:
+    ```
+    analyses/
+        |- R/                # R script for analyses and reports (.R)
+        |- reports/          # Final version of the reports (.docx)
+        |- outputs/          # Output to share for the analyses (.png)
+        |- docx-template/    # Template to fine knit the report (.docx) 
+        |- bibtex-files/     # Reference cited in the report (.bib)
+    ```
+    This folder, because it is an analyses one, is already preconfigured
+    as an RStudio `.Rproj`.
     
   - presence of a package-folder infrastructure which can be use to 
-    safely implement/include any custom or additional function usefull
-    for the analyses. This can be VCS with git and GitHub safely, 
-    without risk to fill the space with data. Moreover, the folder
-    `analyses` is inside the package main folder but it is
-    `.Rbuildignored`, this means that can be git-tracked but it is not
-    provided in the package boundle. Hence, the package can be safely
-    shared both through GitHub or CRAN without risk to share data or 
-    anayses.
+    implement and include any custom or additional function usefull
+    for the analyses. Making able to test, document, trakking their
+    changes, and share with everyone else easily.
     
-  - presence of folders and files to track:
+    This can be VCS with git and GitHub safely, without the risk to
+    overfull the space at the disposal with messy and uncompressed raw
+    data.
+    
+    The folder `analyses/` is stored in the first level inside of the
+    package-folder, so it is easy to find, and use them for the 
+    analyses. On the other hande, `analyses/` is `.Rbuildignore`d from 
+    the package, this way it that can be git-tracked (by default it is)
+    but it is not provided in the package boundle.^[If you want to not
+    git trakking the `analyses/` folder too, add it to `.gitignore`.]
+    Hence, the package can be safely shared both through GitHub or CRAN
+    without risk to share data or analyses, and everyone (future-you
+    too) can easily use all the function you provide with the package
+    as simply as `devtools::install_gitub("UBESP-DCTV/<project_name>")`.
+    
+  - presence of (standardized) additional common project and utility
+    folders and files. These are all subfolders of the main project
+    folder:
   
-    - literature used
-    - papers written (in all the draft, submitted and published shape)
-    - minutes
-    - proposal
-    - personal and private notes or comments not to be shared. 
-  
+    ```
+    yyyy-prjname/
+        |- essential-bibliography/        # used literature (.pdf) 
+        |- papers/            # maintaining ordered in writings
+            |- draft/         # from drafts (`.docx`) 
+            |- submitted/     # to submissions (`.docx`, `.png`, `.pdf`)
+            |- published/     # up to the publishing (`.pdf`, only)
+        |- minutes/           # for the minutes (example `.txt` inside)
+        |- proposal.docx      # requests (replace example w/ current!)
+        |- personal-notes.md  # personal notes, not to be shared 
+    ```
 
-This is a basic example which shows you how to simple it is to be
-used:^[the tilda ("`~`"), here, expands to the home directory from the
-"r point-of-view", i.e. the classical home/ on Unix systems, but to the
-"user/documents" on windows (instead of the simple "user/").]
+
+## Example of usage
+
+The simplest example is all you need to view to learn how simple it is
+to be used:^[the tilda ("`~`"), here, expands to the home directory from
+the "r point-of-view", i.e. the classical home/ on Unix systems, but to
+the "user/documents" on windows (instead of the simple "user/").]
 
 
-```{r example, eval=FALSE}
+```{r simple-example, eval=FALSE}
 devubesp::create_ubesp_analysis("~/test")
+# next, read and follow the instructions appering on the screen :-)
 ```
+
+You can also include longer path to aggregate similar kynd of projects:
+
+```{r structured-example, eval=FALSE}
+devubesp::create_ubesp_analysis("~/theses/cl")
+devubesp::create_ubesp_analysis("~/department-analyses/cardio/xxx")
+devubesp::create_ubesp_analysis("~/whatever/whatelse")
+```
+
+
 
 ## Feature request
 If you need some more features, please file an issue on
@@ -101,3 +171,11 @@ If you encounter a bug, please file a
 Please note that the "devubesp" project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
+
+## Attribution
+Most of the underlying function used to create this package comes
+directly or with slightly modifications from the
+[usethis](https://github.com/r-lib/usethis) package, by Hadley Wickham
+and Jennifer Bryan.
+
+## Footnotes
