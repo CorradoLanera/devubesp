@@ -8,7 +8,7 @@
 \description{
 Automate analyses setup tasks that are otherwise
     performed manually. This includes setting up directories, supporting
-    packages and projects.
+    packages and projects; it imports and expand the "usethis" package.
 }
 \seealso{
 Useful links:
