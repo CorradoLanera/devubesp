@@ -11,6 +11,10 @@ status](https://ci.appveyor.com/api/projects/status/github/CorradoLanera/devubes
 status](https://travis-ci.org/CorradoLanera/devubesp.svg?branch=master)](https://travis-ci.org/CorradoLanera/devubesp)
 [![Codecov test
 coverage](https://codecov.io/gh/CorradoLanera/devubesp/branch/master/graph/badge.svg)](https://codecov.io/gh/CorradoLanera/devubesp?branch=master)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/devubesp)](https://cran.r-project.org/package=devubesp)
 <!-- badges: end -->
 
 The goal of devubesp is to automate analyses setup tasks that are
