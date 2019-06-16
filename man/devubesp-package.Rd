@@ -7,8 +7,8 @@
 \title{devubesp: Automate Analyses Setup at UBESP}
 \description{
 Automate analyses setup tasks that are otherwise
-    performed manually. This includes setting up directories,
-    supporting packages and projects.
+    performed manually. This includes setting up directories, supporting
+    packages and projects.
 }
 \seealso{
 Useful links:
