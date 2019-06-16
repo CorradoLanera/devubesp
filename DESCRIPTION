@@ -1,0 +1,12 @@
+Package: devubesp
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Corrado",
+           family = "Lanera",
+           role = c("aut", "cre"),
+           email = "corrado.lanera@gmail.com")
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
