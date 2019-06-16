@@ -21,6 +21,9 @@ environment:
 
   matrix:
     - R_VERSION: devel
+      GCC_PATH: mingw_32
+
+    - R_VERSION: devel
       R_ARCH: x64
       GCC_PATH: mingw_64
 
@@ -34,18 +37,9 @@ environment:
     - R_VERSION: oldrel
       CRAN: http://cran.rstudio.com
 
-    - R_VERSION: 3.3
-      CRAN: http://cran.rstudio.com
-
-    - R_VERSION: 3.2
-      CRAN: http://cran.rstudio.com
-
-    - R_VERSION: 3.1
-      CRAN: http://cran.rstudio.com
-
   # env vars that may need to be set, at least temporarily, from time to time
   # see https://github.com/krlmlr/r-appveyor#readme for details
-  # USE_RTOOLS: true
+  USE_RTOOLS: true
   # R_REMOTES_STANDALONE: true
 
 
