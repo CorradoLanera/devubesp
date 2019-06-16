@@ -1,12 +1,14 @@
 Package: devubesp
-Title: What the Package Does (One Line, Title Case)
+Title: Automate Analyses Setup at UBESP
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Corrado",
-           family = "Lanera",
-           role = c("aut", "cre"),
-           email = "corrado.lanera@gmail.com")
-Description: What the package does (one paragraph).
+    person("Corrado", "Lanera", , "corrado.lanera@gmail.com",
+        c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-0520-7428")
+    )
+Description: Automate analyses setup tasks that are otherwise
+    performed manually. This includes setting up directories,
+    supporting packages and projects.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
