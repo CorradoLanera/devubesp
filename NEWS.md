@@ -1,3 +1,5 @@
+* hot-fix CI tests because of knitr and rms
+
 # devubesp 0.0.1
 
 * Depends on R >= 3.2
