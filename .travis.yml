@@ -19,8 +19,3 @@ matrix:
     os: linux
   - r: oldrel
     os: osx
-
-  - r: 3.4
-    os: linux
-  - r: 3.4
-    os: osx
