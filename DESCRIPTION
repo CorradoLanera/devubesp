@@ -2,26 +2,27 @@ Package: devubesp
 Title: Automate Analyses Setup at UBESP
 Version: 0.0.0.9000
 Authors@R: 
-    person("Corrado", "Lanera", , "corrado.lanera@gmail.com",
-        c("aut", "cre"),
-        comment = c(ORCID = "0000-0002-0520-7428")
-    )
+    person(given = "Corrado",
+           family = "Lanera",
+           role = c("aut", "cre"),
+           email = "corrado.lanera@gmail.com",
+           comment = c(ORCID = "0000-0002-0520-7428"))
 Description: Automate analyses setup tasks that are otherwise
-    performed manually. This includes setting up directories,
-    supporting packages and projects.
+    performed manually. This includes setting up directories, supporting
+    packages and projects.
 License: GPL-3
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/CorradoLanera/devubesp
 BugReports: https://github.com/CorradoLanera/devubesp/issues
 Depends: 
     R (>= 3.1)
+Imports: 
+    magrittr (>= 1.5)
 Suggests: 
-    covr,
-    testthat (>= 2.1.0),
-    spelling
+    covr (>= 3.2.1),
+    spelling (>= 2.1),
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+Language: en-US
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Imports: 
-    magrittr
-Language: en-US
