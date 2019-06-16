@@ -29,3 +29,9 @@ This is a basic example which shows you how to solve a common problem:
 library(devubesp)
 ## basic example code
 ```
+
+## Code of Conduct
+
+Please note that the ‘devubesp’ project is released with a [Contributor
+Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
+project, you agree to abide by its terms.

@@ -12,3 +12,5 @@ Description: Automate analyses setup tasks that are otherwise
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/CorradoLanera/devubesp
+BugReports: https://github.com/CorradoLanera/devubesp/issues
