@@ -1,3 +1,7 @@
+* Depends on R >= 3.2
+* `save_data()` exported
+* Added `create_ubesp_analysis()`
+
 # devubesp 0.0.0.9000
 
 * Added basic development support:
