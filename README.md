@@ -103,10 +103,10 @@ created are:
     data.
     
     The folder `analyses/` is stored in the first level inside of the
-    package-folder, so it is easy to find, and use them for the
-    analyses. On the other hande, `analyses/` is `.Rbuildignore`d from
-    the package, this way it that can be git-tracked (by default it is)
-    but it is not provided in the package boundle.\[2\] Hence, the
+    package-folder `prjname/`, so it is easy to find, and use them for
+    the analyses. On the other hande, `analyses/` is `.Rbuildignore`d
+    from the package, this way it that can be git-tracked (by default it
+    is) but it is not provided in the package boundle.\[2\] Hence, the
     package can be safely shared both through GitHub or CRAN without
     risk to share data or analyses, and everyone (future-you too) can
     easily use all the function you provide with the package as simply
@@ -117,6 +117,8 @@ created are:
     folder:
     
         yyyy-prjname/
+            |- prjname/           # the R-package folder
+                |- analyses/      # the folder for the analyses
             |- essential-bibliography/        # used literature (.pdf) 
             |- papers/            # maintaining ordered in writings
                 |- draft/         # from drafts (`.docx`) 
@@ -143,6 +145,59 @@ devubesp::create_ubesp_analysis("~/theses/cl")
 devubesp::create_ubesp_analysis("~/department-analyses/cardio/xxx")
 devubesp::create_ubesp_analysis("~/whatever/whatelse")
 ```
+
+## Best Practice for synchronized folders
+
+If you are traking your job using a synchronized folder (e.g., OneDrive,
+G Drive, or DropBox), from one side you can experience iussue including
+a git progect into it because too many agent try to have the control of
+what you can see and what is changed (i.e., git and, e.g., OneDrive). On
+the other side, if you develop your code using git, you really do not
+need to have a second agent to track it\! Anyway, all the part of your
+project which is not under git control should be tracked and stored in
+the synchronized folder. From here the choice seams to be to use two
+distinct folders, e.g., one under `OneDrive/` for all the project’s
+files you do not whant into git (and data, if they are protected on too
+big for, e.g., GitHub) and one on `~/Documents/`. On the other hand,
+this can be annoying because you have to switch from one folder to
+another during the development of your project and, more important, you
+cannot access smootly to the data folder from your R project directory
+(in the case you do not want to git it). Copying averiting twice is, at
+the best, incredibly inefficient\!
+
+The solution comes using symbolic link, simply pointers to a file or
+folder. They appear like a shortcut links but they are not: the first
+are really only a pointer (i.e. they are neighter file or folder), while
+the second are files, containing the address of the target file or
+folder they point to.
+
+Now you can create all your project tree under, e.g.,
+`OneDrive/yyyy-prjname`, create an empty folder
+`~/Documets/yyyy-prjname` and move into it the `projname/` folder
+containing all the development staff you are going to develop in R and,
+that you want to exclude from OneDrive tracking, and track under git.
+Next you can create a symbolic link from all the other files and folders
+into `OneDrive/yyyy-prjname` to `~/Documets/yyyy-prjname`. This way your
+`~/Documets/yyyy-prjname` folder will apparently contain all the object
+of the `OneDrive/yyyy-prjname`, plus the project R folder. On the other
+hand, they do not use any space in your disk, and they are safely sotred
+and tracked by `OneDrive` only but, thank to the symlinks, you can acess
+to them, from the R project folder smootly using standard relative path
+as they are **really** there, e.g., by `here::here(../data-raw)` from
+the project working directory\!
+
+To create symlinks you can have different ways depending of your needs
+and OS. Following what I find usefull to learn how to create them:
+
+  - Windows 10: [command
+    line](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mklink),
+    [powershell (see
+    Example 7)](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7),
+    [GUI (mouse right
+    click)](https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html)
+
+  - Linux:
+    [here](https://www.howtogeek.com/287014/how-to-create-and-use-symbolic-links-aka-symlinks-on-linux/)
 
 ## Feature request
 

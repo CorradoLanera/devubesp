@@ -4,8 +4,14 @@
 \alias{save_data}
 \title{save_data}
 \usage{
-save_data(..., path, overwrite = FALSE, compress = "xz",
-  compression_level = 9, version = 2)
+save_data(
+  ...,
+  path,
+  overwrite = FALSE,
+  compress = "xz",
+  compression_level = 9,
+  version = 2
+)
 }
 \arguments{
 \item{...}{the (unquoted) set of object to save}

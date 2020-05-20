@@ -38,21 +38,28 @@ devtools::install_github("CorradoLanera/devubesp")
 
 ## Preamble
 
-The package, _de facto_, provide a single function. The aim of the 
+The package, _de facto_, provide a single function. The aim of the
 function ``create_ubesp_analysis()` is to setup all the folders'
-structure, with all the needed and sample files to conduct analyses
-at UBESP. Does not matter if they are for a thesis, a project, a simple analyses, the initial structure for the project should be the same.
+structure, with all the needed and sample files to conduct analyses at
+UBESP. Does not matter if they are for a thesis, a project, a simple
+analyses, the initial structure for the project should be the same.
 
-The aim is to drastically reduce (up to the phisical limit of write a single line of code) the time needed to set up a well-organized and standardized structure for all the project, from the simplest to the most complex.
+The aim is to drastically reduce (up to the phisical limit of write a
+single line of code) the time needed to set up a well-organized and
+standardized structure for all the project, from the simplest to the
+most complex.
 
-My first hope is to have provaided a simple and effective instrument to reduce the direct time in the preparation of any project. The second, 
-and more relevant, hope is that all of this will be shared between the colleagues in a way to reduce also the future time to understand each
+My first hope is to have provaided a simple and effective instrument to
+reduce the direct time in the preparation of any project. The second,
+and more relevant, hope is that all of this will be shared between the
+colleagues in a way to reduce also the future time to understand each
 other projects structure and work-flow in conducting analyses with R
 within the same unit.
 
 ## Characteristics
 
-The main characteristics of the resulting structure of files and folders created are:
+The main characteristics of the resulting structure of files and folders
+created are:
 
   - A main folder name which is not ambiguous in time, this is achieved
     pre-appending the year to the name of the main project name.^[In the
@@ -105,7 +112,7 @@ The main characteristics of the resulting structure of files and folders created
     data.
     
     The folder `analyses/` is stored in the first level inside of the
-    package-folder, so it is easy to find, and use them for the 
+    package-folder `prjname/`, so it is easy to find, and use them for the 
     analyses. On the other hande, `analyses/` is `.Rbuildignore`d from 
     the package, this way it that can be git-tracked (by default it is)
     but it is not provided in the package boundle.^[If you want to not
@@ -121,6 +128,8 @@ The main characteristics of the resulting structure of files and folders created
   
     ```
     yyyy-prjname/
+        |- prjname/           # the R-package folder
+            |- analyses/      # the folder for the analyses
         |- essential-bibliography/        # used literature (.pdf) 
         |- papers/            # maintaining ordered in writings
             |- draft/         # from drafts (`.docx`) 
@@ -153,7 +162,66 @@ devubesp::create_ubesp_analysis("~/department-analyses/cardio/xxx")
 devubesp::create_ubesp_analysis("~/whatever/whatelse")
 ```
 
+## Best Practice for synchronized folders
+Including a git project into a synchronized folder (e.g., OneDrive,  G
+Drive or DropBox) can lead to issues because too many agents compete to
+have the control of what you can see and what is changed (e.g., git and
+OneDrive).
 
+On the other side, if you develop your code using git, you do not need
+to have a second agent to track it! Anyway, all the part of your
+project, which is not under git control should be monitored and stored
+in the synchronized folder.
+
+From here, the choice seems to be using two distinct folders, e.g., one
+under `OneDrive/` for all the project's files you do not want into git
+(and the data, if they are protected or too big for GitHub) and one
+under git version control on `~/Documents/`.
+
+On the other hand, that choice can be annoying; you have to switch
+continuously from one folder to another during the development of your
+project. More important, you cannot access smoothly to folders in
+OneDrive you do not want to git (e.g., `data/`) from your R project
+directory directly. Anyway, copying everything twice is incredibly
+inefficient, at best!
+
+A possible solution is to use symbolic links. They are simple pointers
+to a file or folder. To the user, they appear like shortcut links, but
+they are not: the former are only pointers (i.e., they are neither files
+nor folders), while the latter are files containing the address of their
+corresponding target files or folders.
+
+Now you can:
+
+- put all your project-tree under, e.g., `OneDrive/yyyy-prjname/`
+
+- create an empty folder `~/Documets/yyyy-prjname/` 
+
+- move the `projname/` folder containing all the development staff you
+are going to develop in R into the `~/Documets/yyyy-prjname/` folder
+
+- track it under git
+
+- create a symbolic link from all the other files and folders from
+`OneDrive/yyyy-prjname` to `~/Documets/yyyy-prjname/`.
+
+This way, `~/Documents/yyyy-prjname`/ folder will (apparently) contain
+all the objects into `OneDrive/yyyy-prjname/`, plus the R project
+folder. Moreover, those symlinks do not use any space in your disk, and
+they are safely stored and tracked by `OneDrive` only. On the other
+hand, thank symlinks, you can access them, from the R project folder
+smoothly using standard relative paths as they were __really__ there,
+e.g., by calling `here::here(../data-raw)` from the project working
+directory!
+
+To create symlinks you can have different ways depending of your needs
+and OS. Following what I find usefull to learn how to create them:
+
+- Windows 10: [command line](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/mklink),
+       [powershell (see Example 7)](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7),
+       [GUI (mouse right click)](https://schinagl.priv.at/nt/hardlinkshellext/linkshellextension.html)
+
+- Linux: [here](https://www.howtogeek.com/287014/how-to-create-and-use-symbolic-links-aka-symlinks-on-linux/)
 
 ## Feature request
 If you need some more features, please file an issue on

@@ -4,8 +4,12 @@
 \alias{create_ubesp_analysis}
 \title{Create a UBESP analysis project}
 \usage{
-create_ubesp_analysis(path, affiliation = "ubesp",
-  rstudio = rstudioapi::isAvailable(), open = interactive())
+create_ubesp_analysis(
+  path,
+  affiliation = "ubesp",
+  rstudio = rstudioapi::isAvailable(),
+  open = interactive()
+)
 }
 \arguments{
 \item{path}{A path. If it exists, it is used. If it does not exist,

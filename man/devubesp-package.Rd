@@ -19,7 +19,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Corrado Lanera \email{corrado.lanera@gmail.com} (0000-0002-0520-7428)
+\strong{Maintainer}: Corrado Lanera \email{corrado.lanera@gmail.com} (\href{https://orcid.org/0000-0002-0520-7428}{ORCID})
 
 }
 \keyword{internal}
